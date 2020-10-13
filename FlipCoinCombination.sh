@@ -1,5 +1,6 @@
 #!/bin/bash -x
 declare -A singlet
+declare -A dic0
 
 #FOR SINGLET
 function flipCoin() {
@@ -28,3 +29,17 @@ flipCoin 1
 
 echo "SINGLET:::" ${singlet[@]}
 
+#PERCENTAGE
+
+dic0[H]=$hcount
+dic0[T]=$tcount
+echo ${dic0[@]}
+echo ${!dic0[@]}
+perh=`echo $hcount | awk '{print ($1/20)*100}'`
+echo "the HEAD percentage is $perh%"
+arr[j]=$perh
+((j++))
+pert=`echo $tcount | awk '{print ($1/20)*100}'`
+echo "the TAIL percentage is $pert%"
+arr[j]=$pert
+((j++))
