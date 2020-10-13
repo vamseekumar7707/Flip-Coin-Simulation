@@ -192,3 +192,27 @@ arr[j]=$ttt
 
 echo ${arr[@]}
 
+#SORTING
+
+
+for ((i=0;i<${#arr[@]};i++))
+do
+        for ((j=0;j<$((${#arr[@]}-1-$i));j++))
+        do
+                if [ ${arr[j]} -lt ${arr[j+1]} ]
+                then
+                        temp=${arr[j]}
+                        arr[j]=${arr[j+1]}
+                        arr[j+1]=$temp
+                fi
+        done
+done
+echo ${arr[@]}
+echo ${!arr[@]}
+
+if [ $perh -gt $pert ]
+then echo "H  wins"
+elif [ $pert -gt $perh ]
+then echo "T wins"
+else echo "both H&T wins"
+fi
